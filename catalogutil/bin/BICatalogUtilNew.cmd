@@ -60,16 +60,20 @@ if "%1"=="" (
 		GOTO :EOF	
 )
 
-SET BIP_CLIENT_DIR=%~dp0\..
+REM SET BIP_CLIENT_DIR=%~dp0\..
+
+SET BIP_CLIENT_DIR=.\..
 
 REM For sake of simplicity assume that libraries are located at %BIP_CLIENT_DIR%\..\lib
 REM If you want to implement more sophisticated logic - you're welcome
 SET BIP_LIB_DIR=%BIP_CLIENT_DIR%\lib
 
+
 REM Add all libs from BIP_LIB_DIR to classpath
 for /R %BIP_LIB_DIR% %%a in (*.jar) do (
    set BIP_CLASSPATH=!BIP_CLASSPATH!;%%a
  )
+
 set BIP_CLASSPATH=!BIP_CLASSPATH!
 
 REM echo BIP_CLASSPATH: %BIP_CLASSPATH%
@@ -83,9 +87,5 @@ if "%BIP_CLIENT_CONFIG%"=="" (
 SET JVMOPTIONS=%JVMOPTIONS% -Dbip.client.config.dir=%BIP_CLIENT_CONFIG%
 REM echo %JVMOPTIONS% 
 
-if EXIST %JAVA_HOME% (
-  %JAVA_HOME%\bin\java %JVMOPTIONS% oracle.xdo.tools.catalog.command.CommandRunner %*
-) ELSE (
-   echo Incorrect JAVA_HOME, please set JAVA_HOME to the directory where JDK or JRE has been installed
-   GOTO :EOF   
-)
+java %JVMOPTIONS% oracle.xdo.tools.catalog.command.CommandRunner %*
+

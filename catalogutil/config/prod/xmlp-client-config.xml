@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>BIP Server Information</comment>
+    <entry key="bipuri">https://efwg-dev1.fa.us6.oraclecloud.com/xmlpserver/</entry>
+	<entry key="username">thirumurugan.karunakaran@sas.com</entry>
+    <entry key="password">Balaji963$</entry>
+</properties>
+

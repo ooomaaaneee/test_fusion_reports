@@ -1,0 +1,4 @@
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/report_name_branch
